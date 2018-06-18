@@ -1,4 +1,6 @@
 
+module EnumTypes
+
 data Day = Monday
           | Tuesday
           | Wednesday
