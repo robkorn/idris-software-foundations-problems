@@ -14,6 +14,7 @@ negb : Bool -> Bool
 negb False = True
 negb True = False
 
+public export
 andb : (a : Bool) -> (b : Bool) -> Bool
 andb False b = False
 andb True b = b

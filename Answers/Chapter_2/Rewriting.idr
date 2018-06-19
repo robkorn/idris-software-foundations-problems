@@ -10,3 +10,6 @@ plusidex2 n m o prf prf1 = rewrite prf in (rewrite prf1 in Refl)
 multS1 : (n, m : Nat) -> (m = S n) -> m * (1 + n) = m * m
 multS1 n m prf = rewrite prf in Refl
 
+-- Random practice proof
+mu : (n, m : Nat) -> (m = 50) -> (n = m + 50) -> 200 = n + n
+mu n m prf prf1 = rewrite prf1 in rewrite prf in Refl

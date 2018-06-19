@@ -1,6 +1,10 @@
 
-module Blt_Nat
+module Bltnat
 
+howdy : Nat
+howdy = 25
+
+public export
 beq_nat : Nat -> Nat -> Bool
 beq_nat Z Z = True
 beq_nat Z (S k) = False
