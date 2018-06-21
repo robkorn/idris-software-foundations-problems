@@ -41,3 +41,15 @@ to4 = Refl
 
 to5 : False \/ False \/ True = True
 to5 = Refl
+
+
+-- Exercise 11.1
+idAppTwiceF : (f : Bool -> Bool) -> (idp : (x : Bool) -> f x = x) -> f (f False) = False
+idAppTwiceF f idp = rewrite idp False in rewrite idp False in Refl
+
+idAppTwiceT : (f : Bool -> Bool) -> (idp : (x : Bool) -> f x = x) -> f (f True) = True
+idAppTwiceT f idp = rewrite idp True in rewrite idp True in Refl
+
+idAppTwice : (f : Bool -> Bool) -> ((x : Bool) -> f x = x) -> (b : Bool) -> f (f b) = b
+idAppTwice f idp False = idAppTwiceF f idp
+idAppTwice f idp True = idAppTwiceT f idp
