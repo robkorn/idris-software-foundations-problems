@@ -53,3 +53,15 @@ idAppTwiceT f idp = rewrite idp True in rewrite idp True in Refl
 idAppTwice : (f : Bool -> Bool) -> ((x : Bool) -> f x = x) -> (b : Bool) -> f (f b) = b
 idAppTwice f idp False = idAppTwiceF f idp
 idAppTwice f idp True = idAppTwiceT f idp
+
+-- Exercise 11.1 - 2
+negAppTwiceF : (f : Bool -> Bool) -> (g : (x : Bool) -> f x = negb x) -> f (f False) = False
+negAppTwiceF f g = rewrite g False in rewrite g True in Refl
+
+negAppTwiceT : (f : Bool -> Bool) -> (g : (x : Bool) -> f x = negb x) -> f (f True) = True
+negAppTwiceT f g = rewrite g True in rewrite g False in Refl
+
+negAppTwice : (f : Bool -> Bool) -> ((x : Bool) -> f x = negb x) -> (b : Bool) -> f (f b) = b
+negAppTwice f g False = negAppTwiceF f g
+negAppTwice f g True = negAppTwiceT f g
+
