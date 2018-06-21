@@ -9,8 +9,6 @@ plusft_com : (n : Nat) -> beq_nat (1 + n) 0 = False
 plusft_com n = Refl
 
 -- Or case split on the original
-
-
 plusft : (n : Nat) -> beq_nat (n + 1) 0 = False
 plusft Z = Refl
 plusft (S k) = Refl
@@ -22,7 +20,6 @@ andb_commutative True False = Refl
 andb_commutative True True = Refl
 
 -- Alternative
-
 andbcommutative'rhs_1 : (c : Bool) -> False = andb c False
 andbcommutative'rhs_1 False = Refl
 andbcommutative'rhs_1 True = Refl
@@ -47,3 +44,15 @@ andbTelim2T True prf = Refl
 andbTelim2 : (b, c : Bool) -> (andb b c = True) -> c = True
 andbTelim2 False c prf = andbTelim2F c prf
 andbTelim2 True c prf = andbTelim2T c prf
+
+
+-- Exercise 9.2
+zeroNbeqPlusZ : False = False
+zeroNbeqPlusZ = Refl
+
+zeroNbeqPlus1S : (k : Nat) -> False = False
+zeroNbeqPlus1S k = Refl
+
+zeroNbeqPlus1 : (n : Nat) -> beq_nat 0 (n + 1) = False
+zeroNbeqPlus1 Z = zeroNbeqPlusZ
+zeroNbeqPlus1 (S k) = zeroNbeqPlus1S k
